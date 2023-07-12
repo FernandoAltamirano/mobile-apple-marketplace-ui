@@ -1,3 +1,4 @@
+export 'package:apple_store_ui/widgets/product_card.dart';
 export 'package:apple_store_ui/widgets/custom_bottom_navigation_bar.dart';
 export 'package:apple_store_ui/widgets/fixed_bottom_bar.dart';
 export 'package:apple_store_ui/widgets/appbar_button.dart';

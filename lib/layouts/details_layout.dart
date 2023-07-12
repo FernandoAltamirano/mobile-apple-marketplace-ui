@@ -1,6 +1,5 @@
-import 'package:apple_store_ui/api/api_client.dart';
-import 'package:apple_store_ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:apple_store_ui/widgets/widgets.dart';
 
 class DetailsLayout extends StatelessWidget {
   const DetailsLayout({Key? key, required this.child}) : super(key: key);

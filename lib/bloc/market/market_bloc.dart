@@ -6,25 +6,13 @@ part 'market_event.dart';
 part 'market_state.dart';
 
 class MarketBloc extends Bloc<MarketEvent, MarketState> {
-  MarketBloc() : super(MarketInitialState()) {
-    on<MarketInitialEvent>((event, emit) => emit(MarketInitialState(
-        products: event.products,
-        cart: state.cart,
-        favorites: state.favorites,
-        selectedProduct: state.selectedProduct,
-        getAllProductsLoading: false)));
-    on<SetGetAllProductsLoadingEvent>((event, emit) => emit(MarketInitialState(
-        products: state.products,
-        cart: state.cart,
-        favorites: state.favorites,
-        selectedProduct: state.selectedProduct,
-        getAllProductsLoading: event.loading)));
-    on<SetSelectedProductEvent>((event, emit) => emit(MarketInitialState(
-        products: state.products,
-        cart: state.cart,
-        selectedProduct: event.product,
-        favorites: state.favorites,
-        getAllProductsLoading: state.getAllProductsLoading)));
+  MarketBloc() : super(MarketState()) {
+    on<MarketInitialEvent>((event, emit) => emit(state.copyWith(
+        products: event.products, getAllProductsLoading: false)));
+    on<SetGetAllProductsLoadingEvent>((event, emit) =>
+        emit(state.copyWith(getAllProductsLoading: event.loading)));
+    on<SetSelectedProductEvent>(
+        (event, emit) => emit(state.copyWith(selectedProduct: event.product)));
     on<SetFavoritesEvent>((event, emit) {
       List<String> newFavorites = [...state.favorites];
       if (newFavorites.isEmpty) {
@@ -37,12 +25,7 @@ class MarketBloc extends Bloc<MarketEvent, MarketState> {
           newFavorites.remove(event.id);
         }
       }
-      emit(MarketInitialState(
-          products: state.products,
-          cart: state.cart,
-          selectedProduct: state.selectedProduct,
-          favorites: newFavorites,
-          getAllProductsLoading: state.getAllProductsLoading));
+      emit(state.copyWith(favorites: newFavorites));
     });
   }
 }

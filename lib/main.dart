@@ -5,9 +5,7 @@ import 'package:apple_store_ui/bloc/config/config_bloc.dart';
 import 'package:apple_store_ui/layouts/layouts.dart';
 import 'package:apple_store_ui/screens/screens.dart';
 
-void main() async {
-  runApp(const BlocProviderContainer());
-}
+void main() async => runApp(const BlocProviderContainer());
 
 class BlocProviderContainer extends StatelessWidget {
   const BlocProviderContainer({super.key});

@@ -1,4 +1,3 @@
-import 'package:apple_store_ui/theme/current_theme.dart';
 import 'package:flutter/material.dart';
 
 class PromotionBadge extends StatelessWidget {
@@ -9,9 +8,10 @@ class PromotionBadge extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       decoration: BoxDecoration(
-          color: CurrentTheme.blue, borderRadius: BorderRadius.circular(20)),
+          color: const Color.fromARGB(255, 214, 45, 45),
+          borderRadius: BorderRadius.circular(20)),
       child: Text(
-        "Cashback $value%",
+        "- $value%",
         style:
             const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),

@@ -1,17 +1,13 @@
-import 'package:apple_store_ui/bloc/config/config_bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:apple_store_ui/bloc/market/market_bloc.dart';
 import 'package:apple_store_ui/theme/current_theme.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 
 class FixedBottomBar extends StatelessWidget {
   const FixedBottomBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final configBloc = BlocProvider.of<ConfigBloc>(context);
-
     return Container(
         height: 100,
         width: MediaQuery.of(context).size.width,
@@ -19,7 +15,7 @@ class FixedBottomBar extends StatelessWidget {
         decoration: BoxDecoration(color: Colors.white, boxShadow: [
           BoxShadow(
               color: Colors.black.withOpacity(0.1),
-              offset: Offset(10, -6),
+              offset: const Offset(10, -6),
               blurRadius: 12,
               spreadRadius: 2)
         ]),
@@ -40,8 +36,8 @@ class FixedBottomBar extends StatelessWidget {
                     ),
                     Text(
                       "\$ ${state.selectedProduct!.price}",
-                      style:
-                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),

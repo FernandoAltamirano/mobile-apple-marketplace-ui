@@ -6,10 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ApiClient {
-  static final Dio _dio = Dio(BaseOptions(baseUrl: "", headers: {
-    "Accept": "application/json",
-    "Content-Type": "application/json"
-  }));
+  static final Dio _dio = Dio(BaseOptions(
+      baseUrl: "https://a334-181-65-63-210.ngrok-free.app",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      }));
 
   static get(BuildContext context) async {
     try {

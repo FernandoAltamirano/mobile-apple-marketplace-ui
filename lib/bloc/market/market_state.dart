@@ -1,36 +1,31 @@
 part of 'market_bloc.dart';
 
 @immutable
-abstract class MarketState {
+class MarketState {
   final List<Product> products;
   final List<dynamic> cart;
-  final List<String> favorites;
   final bool getAllProductsLoading;
   final Product? selectedProduct;
-  MarketState(
+  final List<String> favorites;
+  const MarketState(
       {this.products = const [],
       this.cart = const [],
       this.selectedProduct,
       this.favorites = const [],
       this.getAllProductsLoading = false});
-}
 
-class MarketInitialState extends MarketState {
-  final List<Product> products;
-  final List<dynamic> cart;
-  final bool getAllProductsLoading;
-  final Product? selectedProduct;
-  final List<String> favorites;
-  MarketInitialState(
-      {this.products = const [],
-      this.cart = const [],
-      this.selectedProduct,
-      this.favorites = const [],
-      this.getAllProductsLoading = false})
-      : super(
-            products: products,
-            cart: cart,
-            favorites: favorites,
-            selectedProduct: selectedProduct,
-            getAllProductsLoading: getAllProductsLoading);
+  copyWith({
+    List<Product>? products,
+    List<dynamic>? cart,
+    bool? getAllProductsLoading,
+    Product? selectedProduct,
+    List<String>? favorites,
+  }) =>
+      MarketState(
+          products: products ?? this.products,
+          cart: cart ?? this.cart,
+          getAllProductsLoading:
+              getAllProductsLoading ?? this.getAllProductsLoading,
+          selectedProduct: selectedProduct ?? this.selectedProduct,
+          favorites: favorites ?? this.favorites);
 }

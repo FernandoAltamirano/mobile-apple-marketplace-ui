@@ -35,7 +35,7 @@ class _PreviewImagesModuleState extends State<PreviewImagesModule> {
                             color:
                                 selectedImageIndex != widget.images.indexOf(e)
                                     ? const Color.fromARGB(255, 206, 206, 206)
-                                    : CurrentTheme.blue)),
+                                    : const Color.fromRGBO(11, 103, 220, 1))),
                     child: ClipRRect(
                       borderRadius:
                           BorderRadius.circular(CurrentTheme.borderRadius),

@@ -4,7 +4,8 @@ import 'package:apple_store_ui/theme/current_theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FixedBottomBar extends StatelessWidget {
-  const FixedBottomBar({Key? key}) : super(key: key);
+  const FixedBottomBar({Key? key, required this.onTap}) : super(key: key);
+  final Function(String, double, BuildContext) onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,10 @@ class FixedBottomBar extends StatelessWidget {
                 ),
                 const SizedBox(width: 20),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    onTap(state.selectedProduct!.id,
+                        state.selectedProduct!.price, context);
+                  },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: CurrentTheme.blue,
                       foregroundColor: Colors.white,

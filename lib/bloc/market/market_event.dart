@@ -22,3 +22,26 @@ class SetFavoritesEvent extends MarketEvent {
   final String id;
   SetFavoritesEvent(this.id);
 }
+
+class AddToCartEvent extends MarketEvent {
+  final String id;
+  final String selectedMemorySize;
+  final String selectedColor;
+  final double price;
+  AddToCartEvent(
+      {required this.id,
+      required this.selectedMemorySize,
+      required this.price,
+      required this.selectedColor});
+}
+
+class SetQuantityEvent extends MarketEvent {
+  final String id;
+  final int quantity;
+  SetQuantityEvent({required this.id, required this.quantity});
+}
+
+class RemoveFromCartEvent extends MarketEvent {
+  final String id;
+  RemoveFromCartEvent({required this.id});
+}

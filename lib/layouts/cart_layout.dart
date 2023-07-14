@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:apple_store_ui/widgets/widgets.dart';
+import 'package:apple_store_ui/modules/modules.dart';
 
-class DetailsLayout extends StatelessWidget {
-  const DetailsLayout({Key? key, required this.child}) : super(key: key);
+class CartLayout extends StatelessWidget {
+  const CartLayout({Key? key, required this.child}) : super(key: key);
   final Widget child;
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class DetailsLayout extends StatelessWidget {
               ),
               Positioned(
                   bottom: MediaQuery.of(context).size.height * 0.01,
-                  child: const FixedBottomBar())
+                  child: const CartFixedBottomBar())
             ],
           ),
         ),

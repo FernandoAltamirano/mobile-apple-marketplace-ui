@@ -1,5 +1,5 @@
-import 'package:apple_store_ui/bloc/market/market_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:apple_store_ui/bloc/market/market_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:apple_store_ui/bloc/config/config_bloc.dart';
 import 'package:apple_store_ui/layouts/layouts.dart';
@@ -46,10 +46,10 @@ class MyApp extends StatelessWidget {
             return const HomeLayout(child: ProfileScreen());
           }
           if (state.currentScreen == 'Cart') {
-            return const HomeLayout(child: CartScreen());
+            return const CartLayout(child: CartScreen());
           }
           if (state.currentScreen == 'Details') {
-            return const DetailsLayout(child: DetailsProductScreen());
+            return DetailsProductScreen();
           }
           return const HomeLayout(child: NotFoundScreen());
         }));

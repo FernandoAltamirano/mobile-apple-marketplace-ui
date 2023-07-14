@@ -5,16 +5,20 @@ import 'package:apple_store_ui/theme/current_theme.dart';
 import 'package:apple_store_ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MoreDetailsModule extends StatelessWidget {
   const MoreDetailsModule({
     super.key,
     required this.product,
     required this.favorites,
+    required this.handleSetSelectedMemorySize,
+    required this.handleSetSelectedColor,
   });
   final Product product;
   final List<String> favorites;
+  final Function(List<String>, int) handleSetSelectedMemorySize;
+  final Function(List<String>, int) handleSetSelectedColor;
 
   @override
   Widget build(BuildContext context) {
@@ -69,11 +73,19 @@ class MoreDetailsModule extends StatelessWidget {
           SelectorBadgesModule(
             title: "Select memory",
             array: product.memorySize,
+            onTap: (value) {
+              handleSetSelectedMemorySize(
+                  product.memorySize, product.memorySize.indexOf(value));
+            },
           ),
           const SizedBox(height: 20),
           SelectorBadgesModule(
             title: "Select color",
             array: product.colors,
+            onTap: (value) {
+              handleSetSelectedColor(
+                  product.colors, product.colors.indexOf(value));
+            },
           )
         ],
       ),
